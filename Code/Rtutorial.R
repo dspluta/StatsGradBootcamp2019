@@ -4,7 +4,7 @@
 # 2016 UCI Statistics Bootcamp
 ################################################################################
 
-setwd('~/Dropbox/StatGradBootcamp_2018/')
+setwd('~/Dropbox/StatGradBootcamp_2019/')
 
 # Data Structures --------------------------------------------------------------
 
@@ -13,8 +13,6 @@ setwd('~/Dropbox/StatGradBootcamp_2018/')
 # Vectors are the most basic things that we will work with in R.  They are very
 # useful for storing information, but they must be chosen correctly to meet the
 # needs of the analysis (mixed data, computational considerations, etc.)
-
-playerinfo <- read.csv("https://raw.githubusercontent.com/dspluta/Stats-Bootcamp/master/rData/playerInfo.csv")
 
 # An Atomic Vector is a one dimensional data structure which contains elements of
 # the same type.
@@ -91,6 +89,10 @@ lapply(list.of.list[[1]], mean)
 
 numVec <- 1:10
 
+##############################################################
+# Baseball data examples
+
+playerinfo <- read.csv("https://raw.githubusercontent.com/dspluta/Stats-Bootcamp/master/rData/playerInfo.csv")
 
 bball <- read.csv('../rData/baseball.dat.txt')
 bball$PlayerID <- 1:nrow(bball)
@@ -105,11 +107,10 @@ head(HitData)
 write.csv(PlayerInfo, file = '../rData/playerInfo.csv', row.names = F)
 set.seed(1515)
 observed.hit.info <- sample(c(TRUE, FALSE), nrow(HitData), prob=c(0.95, 0.05), replace = T)
-write.csv(HitData[observed.hit.info,], file = './rData/performanceInfo.csv', row.names = F)
+write.csv(HitData[observed.hit.info,], file = '../rData/performanceInfo.csv', row.names = F)
 
-
-dat1 <- read.csv('./rData/playerInfo.csv')
-dat2 <- read.csv('./rData/performanceInfo.csv')
+dat1 <- read.csv('../rData/playerInfo.csv')
+dat2 <- read.csv('../rData/performanceInfo.csv')
 head(merge(dat1, dat2, by = 1, all = T))
 
 pairs(dat2)
